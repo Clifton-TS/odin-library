@@ -9,15 +9,50 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Library</h1>
+            <img class="logo" src="icons/bookshelf.svg" alt="" srcset="">
+            <h1>WoodShelf</h1>
         </div>
 
         <div class="sidebar">
-            <h2>Add Book</h2>
+            <form action="" method="get" class="add-book">
+                <h1 class="">Add new book</h1>
+
+                <div class="form-group size">
+                    <label for="main-input">Main Title: </label>
+                    <input type="text" name="main-input" id="main-input" required />
+                </div>
+
+                <div class="form-group size">
+                    <label for="sub-input">Sub Title: </label>
+                    <input type="text" name="sub-input" id="sub-input"/>
+                </div>
+
+                <div class="form-group size">
+                    <label for="author-input">Author: </label>
+                    <input type="text" name="author-input" id="author-input" required />
+                </div>
+
+                <div class="form-group size">
+                    <label for="pages-input">Number of Pages: </label>
+                    <input type="number" name="pages-input" id="pages-input" min="0" max="999999" required />
+                    </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Has it been Read?</legend>
+                        <label><input type="radio" name="radio" value="yes" /> Yes</label>
+                        <label><input type="radio" name="radio" value="no" checked="checked"/> No</label>
+                    </fieldset>
+                </div>
+
+                <div class="form-group size">
+                    <input type="submit" value="Add Book" />
+                </div>
+            </form>
         </div>
 
         <div class="shelf">
-            <div class="book">
+            <div class="book red">
                 <div class="title">
                     <h1 class="main">Example</h1>
                     <h4 class="sub">This is an example Subtitle</h4>
@@ -37,7 +72,7 @@
 
             </div>
 
-            <div class="book">
+            <div class="book blue">
                 <div class="title">
                     <h1 class="main">This is an Example Long Text</h1>
                     <h4 class="sub">This is an example Subtitle</h4>
@@ -57,7 +92,7 @@
 
             </div>
 
-            <div class="book">
+            <div class="book green">
                 <div class="title">
                     <h1 class="main">This is an Example Long Text</h1>
                     <h4 class="sub">This is an example Subtitle</h4>

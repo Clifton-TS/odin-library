@@ -10,7 +10,7 @@
 }
 
 .header {
-    background-color: bisque;
+    background-color: rgb(114, 75, 48);
     padding: 15px;
     grid-column: 1 /-1;
 }
@@ -20,27 +20,30 @@
 }
 
 .sidebar {
-    background-color: aquamarine;
+    background-color: rgb(216, 171, 138);
 }
 
 .shelf {
-    background-color: darkslategrey;
+    background-color: rgb(216, 171, 138);
     display: grid;
     grid-template-columns: 150px 150px;
     grid-auto-columns: 150px;
     grid-template-rows: 100%;
     grid-auto-flow: column;
-    column-gap: 15px;
     overflow-x: auto;
     overflow-y: hidden;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45) inset;
 }
 
 .book {
-    background-color: white;
+    background-color: #500e0e;
+    color: #c59a5a;
     display: grid;
     grid-template-rows: 10fr 1fr 1fr;
     /* flex-direction: flex; */
     text-align: center;
+    margin-left: 15px;
+    box-shadow: 25px 0 20px -20px rgba(0, 0, 0, 0.45);
 }
 
 .title {
@@ -66,7 +69,13 @@
 
 .footer {
     grid-column: 1 / -1;
-    background-color: tomato;
+    background-color: rgb(114, 75, 48);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    font-weight: 800;
 }
 
 

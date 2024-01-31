@@ -61,6 +61,14 @@ form input {
     outline: none;
 }
 
+form input:hover {
+    background-color: rgb(110, 85, 67);
+}
+
+form input:active {
+    background-color: rgb(77, 55, 40);
+}
+
 .shelf {
     background-color: rgb(216, 171, 138);
     display: grid;
@@ -74,14 +82,40 @@ form input {
 }
 
 .book {
-    background-color: #500e0e;
-    color: #c59a5a;
     display: grid;
-    grid-template-rows: 10fr 1fr 1fr;
-    /* flex-direction: flex; */
+    grid-template-rows: 1fr 10fr 1fr 1fr;
+    justify-content: center;
     text-align: center;
     margin-left: 15px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+    color: #c59a5a;
+}
+
+.red {
+    background-color: #500e0e;
+    border-top: #3b0101 solid 5px;
+}
+
+.green {
+    background-color: #173526;
+    border-top: #0a2417 solid 5px;
+}
+
+.blue {
+    background-color: #1d1f31;
+    border-top: #121425 solid 5px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 135px
+}
+
+.delete img {
+    max-width: 2rem;
 }
 
 .title {
@@ -90,15 +124,43 @@ form input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .main {
-    font-size: 5vh;
+    font-size: 2rem;
 }
 
 .sub {
-    font-size: 2vh;
+    font-size: 1rem;
+}
+
+.read {
+    display: flex;
+
+}
+
+.button {
+    background-color: #ffffff00;
+    color: #c59a5a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.400);
+}
+
+.button:active {
+    background-color: rgba(0, 0, 0, 0.61);
+    outline: none;
+}
+
+.read a {
+    text-decoration: none;
+    color: #c59a5a;
+    min-width: 135px;
 }
 
 .footer {

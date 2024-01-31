@@ -13,12 +13,10 @@ form = document.getElementById("new-book")
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
-    inputs = form.querySelectorAll("input")
-    inputValues = []
-    inputs.forEach(input => {
-        inputValues.push(input.value)
-    });
-    console.log(inputValues)
+    main = document.getElementById("main-input")
+    sub = document.getElementById("sub-input")
+    author = document.getElementById("author-input")
+    pages = document.getElementById("pages-input")
     // book = new Book()
     form.reset()
 })

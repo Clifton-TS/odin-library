@@ -135,6 +135,11 @@ form input:active {
     font-size: 1rem;
 }
 
+.author {
+    max-width: 135px;
+    word-wrap: break-word;
+}
+
 .read {
     display: flex;
 

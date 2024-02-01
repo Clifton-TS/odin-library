@@ -90,10 +90,11 @@ form.addEventListener("submit", (e) => {
     pages = document.getElementById("pages-input").value
     color = getRadio("color").value
     read = getRadio("is-read").value
-    library.push(new Book(main, sub, author, pages, color, read))
+    // library.push(new Book(main, sub, author, pages, color, read))
     form.reset()
-    while (shelf.firstChild) {
-        shelf.removeChild(shelf.firstChild);
-    }
-    library.forEach((book) => shelf.appendChild(addBook(book)))
+    // while (shelf.firstChild) {
+    //     shelf.removeChild(shelf.firstChild);
+    // }
+    // library.forEach((book) => shelf.appendChild(addBook(book)))
+    shelf.appendChild(addBook(new Book(main, sub, author, pages, color, read)))
 })

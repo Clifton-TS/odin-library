@@ -55,7 +55,11 @@ function addBook(bookData) {
 
     var pagesPara = document.createElement('p');
     pagesPara.classList.add('pages');
-    pagesPara.textContent = bookData.pages + ' Pages';
+    if (bookData.pages != "1") {
+        pagesPara.textContent = bookData.pages + ' Pages';
+    }else {
+        pagesPara.textContent = bookData.pages + ' Page';
+    }
 
     var readButton = document.createElement('button');
     readButton.classList.add('button');

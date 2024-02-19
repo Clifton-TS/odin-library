@@ -17,7 +17,6 @@ class Book {
         deleteButton.type = 'button';
         deleteButton.addEventListener('click', function () {
             bookElement.parentElement.removeChild(bookElement)
-                
             }
         )
     
@@ -55,13 +54,15 @@ class Book {
         var readButton = document.createElement('button');
         readButton.classList.add('button');
         readButton.textContent = this.read;
-        readButton.addEventListener('click', function () {
-            
+        readButton.addEventListener('click', () => {
+            console.log("antes: " + this.read)
             if(this.read == "Read") {
                 this.read = "Not Read"
-            }else {this.read = "Read"}
+            }else {
+                this.read = "Read"
+            }
             readButton.textContent = this.read
-            console.log(this.read)
+            console.log("dps: " + this.read)
             }
         )
     

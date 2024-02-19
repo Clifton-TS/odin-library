@@ -1,14 +1,79 @@
-function Book(main, sub, author, pages, color, read) {
-    this.main = main
-    this.sub = sub
-    this.author = author
-    this.pages = pages
-    this.color = color
-    this.read = read
-}
+class Book {
+    constructor(main, sub, author, pages, color, read) {
+        this.main = main
+        this.sub = sub
+        this.author = author
+        this.pages = pages
+        this.color = color
+        this.read = read
+    }
 
-Book.prototype.delete = function() {
-    console.log()
+    getHTML() {
+        var bookElement = document.createElement('div');
+        bookElement.classList.add('book', this.color);
+    
+        var deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete', 'button');
+        deleteButton.type = 'button';
+        deleteButton.addEventListener('click', function () {
+            bookElement.parentElement.removeChild(bookElement)
+                
+            }
+        )
+    
+        var deleteIcon = document.createElement('img');
+        deleteIcon.src = 'Icons/trash-can-outline.svg';
+        deleteIcon.alt = 'Delete';
+        deleteButton.appendChild(deleteIcon);
+    
+        var titleDiv = document.createElement('div');
+        titleDiv.classList.add('title');
+    
+        var mainTitle = document.createElement('h1');
+        mainTitle.classList.add('main');
+        mainTitle.textContent = this.main;
+    
+        var subtitle = document.createElement('h4');
+        subtitle.classList.add('sub');
+        subtitle.textContent = this.sub;
+    
+        titleDiv.appendChild(mainTitle);
+        titleDiv.appendChild(subtitle);
+    
+        var authorPara = document.createElement('p');
+        authorPara.classList.add('author');
+        authorPara.textContent = this.author;
+    
+        var pagesPara = document.createElement('p');
+        pagesPara.classList.add('pages');
+        if (this.pages != "1") {
+            pagesPara.textContent = this.pages + ' Pages';
+        }else {
+            pagesPara.textContent = this.pages + ' Page';
+        }
+    
+        var readButton = document.createElement('button');
+        readButton.classList.add('button');
+        readButton.textContent = this.read;
+        readButton.addEventListener('click', function () {
+            
+            if(this.read == "Read") {
+                this.read = "Not Read"
+            }else {this.read = "Read"}
+            readButton.textContent = this.read
+            console.log(this.read)
+            }
+        )
+    
+        bookElement.appendChild(deleteButton);
+        bookElement.appendChild(titleDiv);
+        bookElement.appendChild(authorPara);
+        bookElement.appendChild(pagesPara);
+        bookElement.appendChild(readButton);
+    
+        return bookElement;
+    }
+
 }
 
 function getRadio(radioName) {
@@ -16,72 +81,6 @@ function getRadio(radioName) {
     var checkedRadio = Array.from(radioButtonGroup).find((radio) => radio.checked);
     return checkedRadio
 }
-
-function addBook(bookData) {
-    var bookElement = document.createElement('div');
-    bookElement.classList.add('book', bookData.color);
-
-    var deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete', 'button');
-    deleteButton.type = 'button';
-    deleteButton.addEventListener('click', function () {
-            bookElement.parentElement.removeChild(bookElement)
-            
-        }
-    )
-
-    var deleteIcon = document.createElement('img');
-    deleteIcon.src = 'Icons/trash-can-outline.svg';
-    deleteIcon.alt = 'Delete';
-    deleteButton.appendChild(deleteIcon);
-
-    var titleDiv = document.createElement('div');
-    titleDiv.classList.add('title');
-
-    var mainTitle = document.createElement('h1');
-    mainTitle.classList.add('main');
-    mainTitle.textContent = bookData.main;
-
-    var subtitle = document.createElement('h4');
-    subtitle.classList.add('sub');
-    subtitle.textContent = bookData.sub;
-
-    titleDiv.appendChild(mainTitle);
-    titleDiv.appendChild(subtitle);
-
-    var authorPara = document.createElement('p');
-    authorPara.classList.add('author');
-    authorPara.textContent = bookData.author;
-
-    var pagesPara = document.createElement('p');
-    pagesPara.classList.add('pages');
-    if (bookData.pages != "1") {
-        pagesPara.textContent = bookData.pages + ' Pages';
-    }else {
-        pagesPara.textContent = bookData.pages + ' Page';
-    }
-
-    var readButton = document.createElement('button');
-    readButton.classList.add('button');
-    readButton.textContent = bookData.read;
-    readButton.addEventListener('click', function () {
-        if(bookData.read == "Read") {
-            bookData.read = "Not Read"
-        }else {bookData.read = "Read"}
-        readButton.textContent = bookData.read;
-    }
-)
-
-    bookElement.appendChild(deleteButton);
-    bookElement.appendChild(titleDiv);
-    bookElement.appendChild(authorPara);
-    bookElement.appendChild(pagesPara);
-    bookElement.appendChild(readButton);
-
-    return bookElement;
-}
-
-library = []
 
 form = document.getElementById("new-book")
 
@@ -94,11 +93,8 @@ form.addEventListener("submit", (e) => {
     pages = document.getElementById("pages-input").value
     color = getRadio("color").value
     read = getRadio("is-read").value
-    // library.push(new Book(main, sub, author, pages, color, read))
     form.reset()
-    // while (shelf.firstChild) {
-    //     shelf.removeChild(shelf.firstChild);
-    // }
-    // library.forEach((book) => shelf.appendChild(addBook(book)))
-    shelf.appendChild(addBook(new Book(main, sub, author, pages, color, read)))
+    newBook = new Book(main, sub, author, pages, color, read)
+    console.log(newBook)
+    shelf.appendChild(newBook.getHTML())
 })
